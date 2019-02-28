@@ -74,8 +74,9 @@ public class SortUtils {
         for (int i = 0; i < LENGTH_ARRAY - 1; i++) {
             int min = i;
             for (int next = i + 1; next < LENGTH_ARRAY; next++) {
-                if (array[next] < array[min])
+                if (array[next] < array[min]) {
                     min = next;
+                }
             }
 
             temp = array[min];

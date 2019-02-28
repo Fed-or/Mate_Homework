@@ -2,24 +2,22 @@ package com.fediroryshchuk.homework2.innerclasses;
 
 public class NestedStaticClass {
 
-    static int outer_static = 10;
+    static int outerStatic = 10;
 
-    private int outer_non_static = 20;
+    private int outerNonStatic = 20;
 
-    private static int outer_private = 30;
+    private static int outerPrivate = 30;
 
-    public int getOuter_non_static() {
-        return outer_non_static;
+    public int getOuterNonStatic() {
+        return outerNonStatic;
     }
 
-    protected static class Into {
+    private static class Into {
         void display() {
-            System.out.println("outer_x = " + outer_static);
+            System.out.println("outerX = " + outerStatic);
 
-            System.out.println("outer_private = " + outer_private);
-            System.out.println("outer_private = " + new NestedStaticClass().getOuter_non_static());
+            System.out.println("outerPrivate = " + outerPrivate);
+            System.out.println("outerPrivate = " + new NestedStaticClass().getOuterNonStatic());
         }
     }
 }
-
-
