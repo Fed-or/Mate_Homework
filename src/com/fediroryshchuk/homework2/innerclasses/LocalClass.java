@@ -1,15 +1,15 @@
 package com.fediroryshchuk.homework2.innerclasses;
 
-public class ClassInMethod {
+public class LocalClass {
 
     void outerMethod() {
         System.out.println("Method of outer class");
-        class Inner {
+        class IntoMethod {
             public void innerMethod() {
                 System.out.println("Method of inner class");
             }
         }
-        Inner inner = new Inner();
-        inner.innerMethod();
+        IntoMethod into = new IntoMethod();
+        into.innerMethod();
     }
 }

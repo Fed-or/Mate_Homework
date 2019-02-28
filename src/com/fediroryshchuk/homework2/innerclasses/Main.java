@@ -8,6 +8,8 @@ public class Main {
         NestedClass.Into inner = new NestedClass().new Into();
         inner.demonstration();
 
+        LocalClass outer = new LocalClass();
+        outer.outerMethod();
 
     }
 }
