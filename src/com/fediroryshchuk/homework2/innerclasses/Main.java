@@ -2,15 +2,24 @@ package com.fediroryshchuk.homework2.innerclasses;
 
 public class Main {
     public static void main(String[] args) {
-        InnerStaticClass.Into nestedObject = new InnerStaticClass.Into();
+
+        System.out.println();
+        System.out.println("Nested static class: ");
+
+        NestedStaticClass.Into nestedObject = new NestedStaticClass.Into();
         nestedObject.display();
 
-        NestedClass.Into inner = new NestedClass().new Into();
+        System.out.println();
+        System.out.println("Nested non-static class: ");
+
+        InnerNonStaticClass.Into inner = new InnerNonStaticClass().new Into();
         inner.demonstration();
 
-        LocalClass outer = new LocalClass();
-        outer.outerMethod();
+        System.out.println();
+        System.out.println("Local class: ");
 
+        LocalClass outer = new LocalClass();
+        outer.getValue();
     }
 }
 

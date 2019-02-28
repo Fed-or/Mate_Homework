@@ -1,6 +1,8 @@
 package com.fediroryshchuk.homework2.innerclasses;
 
-public class NestedClass {
+public class InnerNonStaticClass {
+
+
 
     private String privateVariable = "private";
 
