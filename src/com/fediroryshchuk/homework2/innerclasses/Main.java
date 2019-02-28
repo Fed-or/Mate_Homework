@@ -20,6 +20,10 @@ public class Main {
 
         LocalClass outer = new LocalClass();
         outer.getValue();
+
+        System.out.println();
+        System.out.println("Anonymous class: ");
+
     }
 }
 

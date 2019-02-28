@@ -1,7 +1,7 @@
 package com.fediroryshchuk.homework2.innerclasses;
 
 public class AnonymousClass {   // i did`not understand, how works this class, need declare
-    static ParentClass demo = new ParentClass() {
+    static ParentClass anonymous = new ParentClass() {
         @Override
         public void show() {
             super.show();
@@ -10,7 +10,7 @@ public class AnonymousClass {   // i did`not understand, how works this class, n
     };
 
     public static void main(String[] args) {
-        demo.show();
+        anonymous.show();
     }
 }
 
