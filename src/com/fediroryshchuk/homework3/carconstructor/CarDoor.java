@@ -15,46 +15,34 @@ public class CarDoor {
     }
 
     public void openDoor() {
-        if (doorClose) {
-            doorClose = false;
-        }
+        this.doorClose = false;
     }
 
     public void closeDoor() {
-        if (!doorClose) {
-            doorClose = true;
-        }
+        this.doorClose = true;
     }
 
     public void closeOpenDoor() {
-        if (!doorClose) {
-            doorClose = true;
-        } else
-            doorClose = false;
+        doorClose = (!doorClose);
     }
 
     public void openWindow() {
-        if (windowClose) {
-            windowClose = false;
-        }
+        this.windowClose = false;
     }
 
     public void closeWindow() {
-        if (!windowClose) {
-            windowClose = true;
-        }
+        this.windowClose = true;
     }
 
     public void closeOpenWindow() {
-        if (!windowClose) {
-            windowClose = true;
-        } else
-            windowClose = false;
+        windowClose = (!windowClose);
     }
 
-    public void printState() {
-        System.out.println((windowClose) ? "Window is close" : "Window is open");
-        System.out.println((doorClose) ? "Door is close" : "Door is open");
+    @Override
+    public String toString() {
+        return "CarDoor{" +
+                "DoorClose=" + doorClose +
+                ", WindowClose=" + windowClose +
+                '}';
     }
-
 }
