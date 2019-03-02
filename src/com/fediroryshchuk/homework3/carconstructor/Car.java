@@ -1,9 +1,10 @@
 package com.fediroryshchuk.homework3.carconstructor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Car {
-    private final int prodactDate;
+    private final LocalDate prodactDate;
     private String engine;
     private int maxSpeed;
     private int timeAcceleration;
@@ -13,11 +14,11 @@ public class Car {
     private ArrayList<CarWheel> wheels;
     private ArrayList<CarDoor> doors;
 
-    public Car(int prodactDate) {
+    public Car(LocalDate prodactDate) {
         this.prodactDate = prodactDate;
     }
 
-    public Car(int prodactDate, String engine, int maxSpeed,
+    public Car(LocalDate prodactDate, String engine, int maxSpeed,
                int timeAcceleration, int passengerCapacity,
                int passenger, int currentSpeed) {
         this.prodactDate = prodactDate;
@@ -43,9 +44,10 @@ public class Car {
     }
 
     public void getOffPass() {
-        if (passenger > 1) {
+        if (passenger > 0) {
             passenger--;
-        }
+        } else
+            System.out.println("There are not passenger in the car");
     }
 
     public void getOffAllPass() {
@@ -54,7 +56,7 @@ public class Car {
         }
     }
 
-    public int getProdactDate() {
+    public LocalDate getProdactDate() {
         return prodactDate;
     }
 
@@ -79,11 +81,19 @@ public class Car {
     }
 
     public CarDoor getDoor(int indexDoor) {
-        return doors.get(indexDoor);
+        if (indexDoor < doors.size() && indexDoor >= 0) {
+            return doors.get(indexDoor);
+        } else
+            System.out.println("Invalid number of doors");
+        return null;
     }
 
     public CarWheel getWheel(int indexWheel) {
-        return wheels.get(indexWheel);
+        if (indexWheel < wheels.size() && indexWheel >= 0) {
+            return wheels.get(indexWheel);
+        } else
+            System.out.println("Invalid number of wheel");
+        return null;
     }
 
     public void removeAllWheels() {
@@ -95,30 +105,35 @@ public class Car {
     public void setWheels(int newWheels) {
         for (int i = 0; i < newWheels; i++)
             wheels.add(new CarWheel());
-
     }
 
-    public double getPossibilityMaxSpeed() {
-/*        if (passenger > 0) {
+    public double getCurrentMaxSpeed() {
+        ArrayList<Double> stateWheels = new ArrayList<>();
+        double currentMaxSpeed = 0;
 
-
-        // тут мне надо еще пару часов подумать
-*/
-        return passenger;
+        for (CarWheel wheel : wheels) {
+            stateWheels.add(wheel.stateTyre());
+        }
+        for (int i = 0; i < stateWheels.size(); i++) {
+            double worseWheel = 0;
+            if (worseWheel > stateWheels.get(i)) {
+                worseWheel = stateWheels.get(i);
+                currentMaxSpeed = maxSpeed * worseWheel;
+            }
+        }
+        return currentMaxSpeed;
     }
 
+    public String toString() {
+        return "Car{" + prodactDate + "year." + "Engine: " + engine + ". Max speed: "
+                + maxSpeed + ". For 100km per hour is " + timeAcceleration
+                + " sec. Capacity: " + passengerCapacity + ". Now inside are: "
+                + passenger + " passangers. Current speed: " + currentSpeed
+                + ". Current max speed: " + getCurrentSpeed() + ". Car has "
+                + wheels.size() + " wheels and " + doors.size() + " doors.";
+    }
 
-    public void printCarState() {
-        System.out.println("Year: " + prodactDate + ".");
-
-        System.out.println("Engine: " + engine + ".");
-        System.out.println("Max speed:  " + maxSpeed + ".");
-        System.out.println("For 100km per hour is " + timeAcceleration + " sec.");
-        System.out.println("Capacity: " + passengerCapacity + ". ");
-        System.out.println("Now inside are: " + passenger + " passangers.");
-        System.out.println("Current speed: " + currentSpeed + ".");
-        System.out.println("Current max speed: " + getPossibilityMaxSpeed());
-        System.out.println("Car has " + wheels.size() + " wheels and " + doors.size() + " doors.");
-        System.out.println();
+    public void printStatus() {
+        System.out.println(this.toString());
     }
 }
