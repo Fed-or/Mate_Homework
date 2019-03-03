@@ -114,9 +114,9 @@ public class Car {
         for (CarWheel wheel : wheels) {
             stateWheels.add(wheel.stateTyre());
         }
+        double worseWheel = stateWheels.get(0);
         for (int i = 0; i < stateWheels.size(); i++) {
-            double worseWheel = 0;
-            if (worseWheel > stateWheels.get(i)) {
+            if (worseWheel >= stateWheels.get(i)) {
                 worseWheel = stateWheels.get(i);
                 currentMaxSpeed = maxSpeed * worseWheel;
             }
