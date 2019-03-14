@@ -11,8 +11,8 @@ public class Calculator {
     private static Map<Character, BinaryOperator<Double>> operations = setOperationType();
 
     public static double calculate(double numberOne, char operation, double numberTwo) {
-        BinaryOperator<Double> op = operations.get(operation);
 
+        BinaryOperator<Double> op = operations.get(operation);
         return op.apply(numberOne, numberTwo);
     }
 
