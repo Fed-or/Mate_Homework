@@ -1,3 +1,4 @@
+
 package com.fediroryshchuk.homework6.flowers;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class FlowerApp {
         }
 
         System.out.println();
-        System.out.println("Cash in our store: " + store.getPurse());// не розумію, чому тут нуль видає?
+        System.out.println("Cash in store: " + store.getPurse());// не розумію, чому тут нуль видає?
         System.out.println();
 
         List<Flower> flowers2 = store.sellSequence(6, 2, 1);
