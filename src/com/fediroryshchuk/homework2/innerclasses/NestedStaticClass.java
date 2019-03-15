@@ -12,7 +12,7 @@ public class NestedStaticClass {
         return outerNonStatic;
     }
 
-    public static class Into {
+    protected static class Into {
         void display() {
             System.out.println("outerX = " + outerStatic);
 
