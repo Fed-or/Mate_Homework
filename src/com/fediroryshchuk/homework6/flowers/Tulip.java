@@ -1,7 +1,5 @@
 package com.fediroryshchuk.homework6.flowers;
 
-import java.util.ArrayList;
-
 public class Tulip extends Flower {
 
     public Tulip(int cost) {
