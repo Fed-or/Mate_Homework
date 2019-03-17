@@ -3,8 +3,8 @@ package com.fediroryshchuk.homework7.threads.synchronize.semaphor;
 import java.util.concurrent.Semaphore;
 
 public class ReduceCounter implements Runnable {
-    String name;
-    Semaphore smph;
+    private String name;
+    private Semaphore smph;
 
     ReduceCounter(Semaphore mph, String name) {
         this.smph = smph;

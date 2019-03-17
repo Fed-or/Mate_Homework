@@ -4,30 +4,30 @@ import java.util.concurrent.Phaser;
 
 public class Main {
     public static void main(String args[]) {
-        Phaser phas = new Phaser(1);
+        Phaser phaser = new Phaser(1);
         int currentPhase;
 
         System.out.println("Start of theads: ");
 
-        new TestPhaser(phas, "1");
-        new TestPhaser(phas, "2");
-        new TestPhaser(phas, "3");
+        new TestPhaser(phaser, "1");
+        new TestPhaser(phaser, "2");
+        new TestPhaser(phaser, "3");
 
-        currentPhase = phas.getPhase();
-        phas.arriveAndAwaitAdvance();
+        currentPhase = phaser.getPhase();
+        phaser.arriveAndAwaitAdvance();
         System.out.println("Circle " + currentPhase + " is over.");
 
-        currentPhase = phas.getPhase();
-        phas.arriveAndAwaitAdvance();
+        currentPhase = phaser.getPhase();
+        phaser.arriveAndAwaitAdvance();
         System.out.println("Phase " + currentPhase + " is over.");
 
-        currentPhase = phas.getPhase();
-        phas.arriveAndAwaitAdvance();
+        currentPhase = phaser.getPhase();
+        phaser.arriveAndAwaitAdvance();
         System.out.println("Phase " + currentPhase + " is over.");
 
-        phas.arriveAndDeregister();
+        phaser.arriveAndDeregister();
 
-        if (phas.isTerminated()) {
+        if (phaser.isTerminated()) {
             System.out.println("Orders were completed.");
         }
     }

@@ -9,11 +9,10 @@ public class BrokeSingeton {
         President secondPresident = null;
 
         try {
-
-            Class SecondPresident = President.class;
+            Class presidentTwo = President.class;
             President.getInstance();
 
-            Constructor<President> constr = SecondPresident.getDeclaredConstructor();
+            Constructor<President> constr = presidentTwo.getDeclaredConstructor();
             constr.setAccessible(true);
             secondPresident= constr.newInstance();
         } catch (Exception e) {

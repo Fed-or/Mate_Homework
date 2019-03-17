@@ -1,6 +1,7 @@
 package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class PoliticianSelection {
@@ -15,16 +16,32 @@ public class PoliticianSelection {
         }
     }
 
-    public static void callPolitician() throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String s = reader.readLine();
+    public static void callPolitician() throws IOException {
 
-        if (s.equals(SeniorGovernmentOfficials.PRESIDENT)) {
-            senior = President.getInstance();
-        } else if (s.equals(SeniorGovernmentOfficials.PRIME_MINISTER)) {
-            senior = PrimeMinister.getInstance();
-        } else if (s.equals(SeniorGovernmentOfficials.SPEAKER)) {
-            senior = Speaker.getInstance();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String s = null;
+        try {
+            s = reader.readLine();
+
+            switch (s) {
+                case "Порошенко":
+                    senior = President.getInstance();
+                    System.out.println("He is president");
+                    break;
+                case "Гройсман":
+                    senior = PrimeMinister.getInstance();
+                    System.out.println("He is prime-minister");
+                    break;
+                case "Парубий":
+                    senior = Speaker.getInstance();
+                    System.out.println("He is speaker");
+                    break;
+                default: System.out.println("Unknown person. Try again...");
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    reader.close();
     }
 }
