@@ -15,22 +15,23 @@ public class TestPhaser implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Thread " + name + " begins first circle");
+        System.out.println("Thread " + name + " begins first phase");
         phaser.arriveAndAwaitAdvance();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-        System.out.println("Thead " + name + " begins second circle.");
-        phaser.arriveAndAwaitAdvance();
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-        System.out.println("Thread " + name + " begins third circle.");
 
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println("Thread " + name + " begins second phase.");
+        phaser.arriveAndAwaitAdvance();
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println("Thread " + name + " begins third phase.");
         phaser.arriveAndDeregister();
     }
 }

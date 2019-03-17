@@ -7,7 +7,7 @@ public class Main {
         Phaser phaser = new Phaser(1);
         int currentPhase;
 
-        System.out.println("Start of theads: ");
+        System.out.println("Start of threads: ");
 
         new TestPhaser(phaser, "1");
         new TestPhaser(phaser, "2");
@@ -15,7 +15,7 @@ public class Main {
 
         currentPhase = phaser.getPhase();
         phaser.arriveAndAwaitAdvance();
-        System.out.println("Circle " + currentPhase + " is over.");
+        System.out.println("Phase " + currentPhase + " is over.");
 
         currentPhase = phaser.getPhase();
         phaser.arriveAndAwaitAdvance();
