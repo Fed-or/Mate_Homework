@@ -1,16 +1,18 @@
 package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 
 public class President extends SeniorGovernmentOfficials {
-    private static President instance;
+    private static volatile President instance;
 
-    private President(){
-
-    }
-
-    public static synchronized President getInstance(){
-        if(instance==null){
-            instance = new President();
+    public static President getInstance() {
+        President localInstance = instance;
+        if (localInstance == null) {
+            synchronized (President.class) {
+                localInstance = instance;
+                if (localInstance == null) {
+                    instance = localInstance = new President();
+                }
+            }
         }
-        return instance;
+        return localInstance;
     }
 }

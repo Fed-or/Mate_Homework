@@ -1,15 +1,18 @@
 package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 
 public class Speaker extends SeniorGovernmentOfficials {
-    private static Speaker instance;
+    private static volatile Speaker instance;
 
-    private Speaker() {
-    }
-
-    public static synchronized Speaker getInstance() {
-        if (instance == null) {
-            instance = new Speaker();
+    public static Speaker getInstance() {
+        Speaker localInstance = instance;
+        if (localInstance == null) {
+            synchronized (Speaker.class) {
+                localInstance = instance;
+                if (localInstance == null) {
+                    instance = localInstance = new Speaker();
+                }
+            }
         }
-        return instance;
+        return localInstance;
     }
 }

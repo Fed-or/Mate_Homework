@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Lock;
 public class Write extends Thread {
     private Operation operation;
     private Lock writeLock;
+    private static final int MAX_RESULT = 5000;
 
     public Write(String name, Operation operation, Lock writeLock) {
         super.setName(name);
@@ -15,11 +16,14 @@ public class Write extends Thread {
     @Override
     public void run() {
         System.out.println(super.getName() + ": start working");
-        while (operation.get() < 5000) {
+        while (operation.get() < MAX_RESULT) {
             writeLock.lock();
-            operation.increment();
-            writeLock.unlock();
+            try {
+                operation.increment();
+            } finally {
+                writeLock.unlock();
+            }
+            System.out.println(super.getName() + ": finished working");
         }
-        System.out.println(super.getName() + ": finished working");
     }
 }

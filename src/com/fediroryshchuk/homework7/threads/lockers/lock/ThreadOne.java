@@ -14,10 +14,14 @@ public class ThreadOne extends Thread {
 
     @Override
     public void run() {
-        locker.lock();
-        System.out.println(super.getName() + ": start working");
-        list.writeNumber();
-        System.out.println(super.getName() + ": stop working");
-        locker.unlock();
+            locker.lock();
+        try {
+            System.out.println(super.getName() + ": start working");
+            list.writeNumber();
+            System.out.println(super.getName() + ": stop working");
+        }
+        finally {
+            locker.unlock();
+        }
     }
 }

@@ -10,7 +10,7 @@ public class ListOfNumbers {
         array = new int[size];
     }
 
-    public void writeNumber() {
+    public synchronized void writeNumber() {
         for (int i = 0; i < array.length; i++) {
             array[i] = rnd.nextInt(100);
         }

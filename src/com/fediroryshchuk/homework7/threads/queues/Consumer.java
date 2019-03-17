@@ -6,7 +6,6 @@ public class Consumer implements Runnable {
     protected BlockingQueue queue;
     private int count;
 
-
     public Consumer(BlockingQueue queue, int count) {
         this.queue = queue;
         this.count = count;

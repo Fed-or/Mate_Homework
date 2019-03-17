@@ -13,4 +13,3 @@ public class BlockQ {
         new Thread(new Consumer(bq, COUNT)).start();
     }
 }
-

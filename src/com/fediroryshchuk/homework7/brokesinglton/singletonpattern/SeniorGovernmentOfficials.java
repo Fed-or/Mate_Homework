@@ -1,7 +1,7 @@
 package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 
 public class SeniorGovernmentOfficials {
-    static String PRESIDENT = "Порошенко";
-    static String PRIME_MINISTER = "Гройсман";
-    static String SPEAKER = "Парубий";
+    static final String PRESIDENT = "Порошенко";
+    static final String PRIME_MINISTER = "Гройсман";
+    static final String SPEAKER = "Парубий";
 }

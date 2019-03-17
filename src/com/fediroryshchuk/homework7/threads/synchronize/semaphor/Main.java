@@ -10,4 +10,3 @@ public class Main {
         new ReduceCounter(smph, "B");
     }
 }
-
