@@ -12,15 +12,13 @@ public class MyThread implements Runnable {
         this.name = name;
         new Thread(this).start();
     }
-
+    @Override
     public void run() {
         System.out.println(name);
 
         try {
             barrier.await();
-        } catch (BrokenBarrierException e) {
-            System.out.println(e);
-        } catch (InterruptedException e) {
+        } catch (BrokenBarrierException | InterruptedException e) {
             System.out.println(e);
         }
     }

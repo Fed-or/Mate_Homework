@@ -1,4 +1,4 @@
-package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
+package com.fediroryshchuk.homework7.singletonpattern;
 
 import java.lang.reflect.Constructor;
 

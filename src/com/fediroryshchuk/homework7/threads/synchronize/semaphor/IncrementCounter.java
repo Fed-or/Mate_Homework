@@ -17,7 +17,7 @@ public class IncrementCounter implements Runnable {
         try {
             System.out.println("Thread " + name + " are waiting permission");
             semaphore.acquire();
-            System.out.println("Поток " + name + " are getting permission");
+            System.out.println("Thread " + name + " are getting permission");
 
             for (int i = 0; i < 5; i++) {
                 Count.counter++;

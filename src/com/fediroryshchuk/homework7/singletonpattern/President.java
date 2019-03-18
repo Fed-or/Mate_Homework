@@ -1,8 +1,6 @@
 package com.fediroryshchuk.homework7.singletonpattern;
 
-import java.time.LocalDate;
-
-public class President extends SeniorGovernmentOfficials {
+public class President extends SeniorGovernmentOfficials{
 
     private static volatile President instance;
 
