@@ -13,7 +13,7 @@ public class ConcurrentHM {
         new Thread(ob.new ReadThread()).start();
     }
 
-    class FirstThread implements Runnable {
+    static class FirstThread implements Runnable {
         @Override
         public void run() {
             for (int i = 1; i <= 10; i++) {
@@ -22,7 +22,7 @@ public class ConcurrentHM {
         }
     }
 
-    class SecondThread implements Runnable {
+    static class SecondThread implements Runnable {
         @Override
         public void run() {
             for (int i = 1; i <= 10; i++) {
@@ -31,7 +31,7 @@ public class ConcurrentHM {
         }
     }
 
-    class ReadThread implements Runnable {
+    static class ReadThread implements Runnable {
         @Override
         public void run() {
             Iterator<Integer> ite = hashMap.keySet().iterator();

@@ -17,9 +17,9 @@ public class PoliticianSelection {
     }
 
     static void callPolitician() throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String s = null;
-        try {
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            String s = null;
             s = reader.readLine();
 
             switch (s) {
@@ -38,9 +38,6 @@ public class PoliticianSelection {
                 default:
                     System.out.println("Unknown person. Try again...");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        reader.close();
     }
 }
