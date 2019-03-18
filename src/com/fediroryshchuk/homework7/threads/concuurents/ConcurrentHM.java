@@ -4,13 +4,13 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHM {
-    private final ConcurrentHashMap<Integer, String> hashMap = new ConcurrentHashMap<>();
+    private final static ConcurrentHashMap<Integer, String> hashMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
         ConcurrentHM ob = new ConcurrentHM();
-        new Thread(ob.new FirstThread()).start();
-        new Thread(ob.new SecondThread()).start();
-        new Thread(ob.new ReadThread()).start();
+        new Thread(new FirstThread()).start();
+        new Thread(new SecondThread()).start();
+        new Thread(new ReadThread()).start();
     }
 
     static class FirstThread implements Runnable {
