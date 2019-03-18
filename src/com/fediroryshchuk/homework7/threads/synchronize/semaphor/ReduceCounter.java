@@ -4,10 +4,10 @@ import java.util.concurrent.Semaphore;
 
 public class ReduceCounter implements Runnable {
     private String name;
-    private Semaphore smph;
+    private Semaphore semaphore;
 
-    ReduceCounter(Semaphore mph, String name) {
-        this.smph = smph;
+    ReduceCounter(Semaphore semaphor, String name) {
+        this.semaphore = semaphor;
         this.name = name;
         new Thread(this).start();
     }
@@ -16,7 +16,7 @@ public class ReduceCounter implements Runnable {
         System.out.println("Start thread " + name);
         try {
             System.out.println("Thread " + name + " are waiting permission");
-            smph.acquire();
+            semaphore.acquire();
             System.out.println("Thread " + name + " are getting permission");
 
             for (int i = 0; i < 5; i++) {
@@ -29,6 +29,6 @@ public class ReduceCounter implements Runnable {
             System.out.println(exc);
         }
         System.out.println("Thread " + name + " frees up permission");
-        smph.release();
+        semaphore.release();
     }
 }

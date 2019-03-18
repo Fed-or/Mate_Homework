@@ -23,15 +23,15 @@ public class PoliticianSelection {
             s = reader.readLine();
 
             switch (s) {
-                case "Порошенко":
+                case SeniorGovernmentOfficials.PRESIDENT:
                     senior = President.getInstance();
                     System.out.println("He is president");
                     break;
-                case "Гройсман":
+                case SeniorGovernmentOfficials.PRIME_MINISTER:
                     senior = PrimeMinister.getInstance();
                     System.out.println("He is prime-minister");
                     break;
-                case "Парубий":
+                case SeniorGovernmentOfficials.SPEAKER:
                     senior = Speaker.getInstance();
                     System.out.println("He is speaker");
                     break;

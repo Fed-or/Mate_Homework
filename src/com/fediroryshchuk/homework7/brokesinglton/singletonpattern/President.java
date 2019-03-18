@@ -3,6 +3,9 @@ package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 public class President extends SeniorGovernmentOfficials {
     private static volatile President instance;
 
+    private President() {
+    }
+
     public static President getInstance() {
         President localInstance = instance;
         if (localInstance == null) {

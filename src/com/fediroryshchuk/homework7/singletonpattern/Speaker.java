@@ -3,6 +3,9 @@ package com.fediroryshchuk.homework7.singletonpattern;
 public class Speaker extends SeniorGovernmentOfficials{
     private static volatile Speaker instance;
 
+    private Speaker() {
+    }
+
     public static Speaker getInstance() {
         Speaker localInstance = instance;
         if (localInstance == null) {

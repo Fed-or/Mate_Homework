@@ -4,10 +4,10 @@ import java.util.concurrent.Semaphore;
 
 public class IncrementCounter implements Runnable {
     private String name;
-    private Semaphore smph;
+    private Semaphore semaphore;
 
     IncrementCounter(Semaphore smph, String name) {
-        this.smph = smph;
+        this.semaphore = smph;
         this.name = name;
         new Thread(this).start();
     }
@@ -16,7 +16,7 @@ public class IncrementCounter implements Runnable {
         System.out.println("start thread " + name);
         try {
             System.out.println("Thread " + name + " are waiting permission");
-            smph.acquire();
+            semaphore.acquire();
             System.out.println("Поток " + name + " are getting permission");
 
             for (int i = 0; i < 5; i++) {
@@ -30,6 +30,6 @@ public class IncrementCounter implements Runnable {
         }
 
         System.out.println("Thread " + name + "frees up permission");
-        smph.release();
+        semaphore.release();
     }
 }

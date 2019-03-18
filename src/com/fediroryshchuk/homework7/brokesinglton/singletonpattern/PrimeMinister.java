@@ -3,6 +3,9 @@ package com.fediroryshchuk.homework7.brokesinglton.singletonpattern;
 public class PrimeMinister extends SeniorGovernmentOfficials {
     private static volatile PrimeMinister instance;
 
+    private PrimeMinister() {
+    }
+
     public static PrimeMinister getInstance() {
         PrimeMinister localInstance = instance;
         if (localInstance == null) {

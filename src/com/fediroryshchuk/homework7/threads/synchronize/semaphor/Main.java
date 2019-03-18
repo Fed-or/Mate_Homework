@@ -4,9 +4,9 @@ import java.util.concurrent.Semaphore;
 
 public class Main {
     public static void main(String args[]) {
-        Semaphore smph = new Semaphore(1);
+        Semaphore semaphore = new Semaphore(1);
 
-        new IncrementCounter(smph, "A");
-        new ReduceCounter(smph, "B");
+        new IncrementCounter(semaphore, "A");
+        new ReduceCounter(semaphore, "B");
     }
 }
